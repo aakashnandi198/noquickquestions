@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No Quick Questions — Please just ask the question</title>
+  <meta name="description" content="Please don't ask if you can ask a quick question. Just ask the question, provide context upfront, and let the recipient decide how long it takes to answer." />
+  <meta property="og:title" content="noquickquestions.com — Please just ask the question" />
+  <meta property="og:description" content="Saying 'quick question' is the workplace equivalent of saying 'I'm only having one drink tonight.' Everyone knows you're lying." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <span class="brand-icon">⏱️</span>
+        <span class="brand-text">no<strong>quickquestions</strong>.com</span>
+      </a>
+      <div class="nav-controls">
+        <button id="themeToggle" class="btn-icon" aria-label="Toggle dark/light theme" onclick="toggleTheme()" title="Switch Theme">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button id="navCopyBtn" class="btn btn-sm btn-outline" onclick="copyUrl()">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Share Link</span>
+        </button>
+        <a href="https://github.com/aakashnandi198/noquickquestions" target="_blank" rel="noopener" class="nav-github" title="View on GitHub">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-badge">A Public Service Announcement for Slack & Teams</div>
+      <h1>It’s not a quick question.<br class="hero-br"/> It’s <span>never</span> a quick question.</h1>
+      <p class="tagline">
+        Saying <em>&ldquo;quick question&rdquo;</em> is the workplace equivalent of saying <em>&ldquo;I&rsquo;m only having one drink tonight.&rdquo;</em><br />
+        Everyone knows you&rsquo;re lying. Especially you.
+      </p>
+      <div class="hero-actions">
+        <button id="copyBtn" class="btn btn-primary btn-lg" onclick="copyUrl()">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copyBtnText">Copy Link to Drop in Slack</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Section 1: Side-by-Side Ambush Comparison -->
+      <section class="section">
+        <div class="section-header">
+          <h2>The Anatomy of an Ambush</h2>
+          <p class="section-intro">Look familiar? Here is the exact difference in focus, time, and sanity:</p>
+        </div>
+
+        <div class="chat-comparison-grid">
+          <!-- The Bad Way -->
+          <div class="chat-card bad">
+            <div class="chat-card-header">
+              <div class="status-pill status-bad">❌ The &ldquo;Quick Question&rdquo;</div>
+              <div class="chat-meta">45 min lost &bull; Context ruined</div>
+            </div>
+            <div class="chat-body">
+              <div class="message-group incoming">
+                <div class="avatar avatar-alice">A</div>
+                <div class="message-content">
+                  <div class="sender-name">Alice <span class="time">11:14 AM</span></div>
+                  <div class="bubble">Hey! Quick question when you have 30 seconds? 👋</div>
+                </div>
+              </div>
+
+              <div class="chat-narrative">
+                You foolishly think: <em>&ldquo;Maybe they just want the Figma link.&rdquo;</em> You take the bait.
+              </div>
+
+              <div class="message-group outgoing">
+                <div class="avatar avatar-you">Y</div>
+                <div class="message-content">
+                  <div class="sender-name">You <span class="time">11:15 AM</span></div>
+                  <div class="bubble">Sure! What's up?</div>
+                </div>
+              </div>
+
+              <div class="typing-indicator">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <span class="typing-label">Alice is typing for 6 agonizing minutes...</span>
+              </div>
+
+              <div class="message-group incoming">
+                <div class="avatar avatar-alice">A</div>
+                <div class="message-content">
+                  <div class="sender-name">Alice <span class="time">11:21 AM</span></div>
+                  <div class="bubble">
+                    So why does our billing microservice drop database connections specifically when a customer from Germany renews on a leap year? Also can we rewrite the auth layer before the 2 PM demo?
+                  </div>
+                </div>
+              </div>
+
+              <div class="message-group outgoing">
+                <div class="avatar avatar-you">Y</div>
+                <div class="message-content">
+                  <div class="sender-name">You <span class="time">11:22 AM</span></div>
+                  <div class="bubble thought">
+                    (Stares blankly into the middle distance. Coffee goes cold. Today's sprint goals evaporate into mist.)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Good Way -->
+          <div class="chat-card good">
+            <div class="chat-card-header">
+              <div class="status-pill status-good">✅ The Direct Async Message</div>
+              <div class="chat-meta">5 min total &bull; Zero panic</div>
+            </div>
+            <div class="chat-body">
+              <div class="message-group incoming">
+                <div class="avatar avatar-alice">A</div>
+                <div class="message-content">
+                  <div class="sender-name">Alice <span class="time">11:14 AM</span></div>
+                  <div class="bubble">
+                    Hey! <strong>Non-urgent, take your time:</strong><br /><br />
+                    We're seeing 3 European customers fail checkout on the enterprise plan with 500 errors.<br /><br />
+                    Logs trace: <code>https://logs.internal/trace/9821</code><br />
+                    Did something change with EU VAT calculation in yesterday's release?
+                  </div>
+                </div>
+              </div>
+
+              <div class="chat-narrative">
+                You glance at the preview. You know the exact issue, finish your current code commit, and reply when ready.
+              </div>
+
+              <div class="message-group outgoing">
+                <div class="avatar avatar-you">Y</div>
+                <div class="message-content">
+                  <div class="sender-name">You <span class="time">11:26 AM</span></div>
+                  <div class="bubble">
+                    Good catch! The tax table migration didn't apply to replica 2. Re-running the script now. PR is at <code>#412</code>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="chat-narrative success-note">
+                ✨ Zero rounds of hostage negotiation. Both people get on with their day.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Universal Scale of Question Duration -->
+      <section class="section">
+        <div class="section-header">
+          <h2>The Universal Scale of Question Duration</h2>
+          <p class="section-intro">Where does your inquiry actually land on the reality spectrum?</p>
+        </div>
+
+        <div class="scale-grid">
+          <div class="scale-card tier-1">
+            <div class="scale-top">
+              <span class="scale-duration">30s</span>
+              <span class="badge-verdict verdict-ok">Acceptable</span>
+            </div>
+            <div class="scale-quote">&ldquo;Where is the printer paper?&rdquo;</div>
+            <div class="scale-desc">Legitimate quick question. A direct, factual pointer.</div>
+          </div>
+
+          <div class="scale-card tier-2">
+            <div class="scale-top">
+              <span class="scale-duration">5 min</span>
+              <span class="badge-verdict verdict-warn">Borderline</span>
+            </div>
+            <div class="scale-quote">&ldquo;Do we still support Safari 14?&rdquo;</div>
+            <div class="scale-desc">Could be quick, unless it triggers a 40-minute browser matrix debate.</div>
+          </div>
+
+          <div class="scale-card tier-3">
+            <div class="scale-top">
+              <span class="scale-duration">45 min</span>
+              <span class="badge-verdict verdict-bad">Liar</span>
+            </div>
+            <div class="scale-quote">&ldquo;Why is staging throwing 500s on checkout?&rdquo;</div>
+            <div class="scale-desc">Requires repo inspection, log parsing, and active debugging.</div>
+          </div>
+
+          <div class="scale-card tier-4">
+            <div class="scale-top">
+              <span class="scale-duration">3 weeks</span>
+              <span class="badge-verdict verdict-jail">Straight to Jail</span>
+            </div>
+            <div class="scale-quote">&ldquo;How should our distributed data model scale?&rdquo;</div>
+            <div class="scale-desc">That’s not a question; that’s an entire quarter’s OKR.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: The Corporate Translation Matrix -->
+      <section class="section">
+        <div class="section-header">
+          <h2>The Corporate Translation Matrix</h2>
+          <p class="section-intro">What people type vs. what their keyboard is secretly screaming:</p>
+        </div>
+
+        <div class="table-card">
+          <table class="dictionary-table">
+            <thead>
+              <tr>
+                <th style="width: 32%;">What they type</th>
+                <th>What it actually means</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="phrase"><strong>&ldquo;Quick question!&rdquo;</strong></td>
+                <td>&ldquo;I have wandered into a labyrinth of my own making and require an adult.&rdquo;</td>
+              </tr>
+              <tr>
+                <td class="phrase"><strong>&ldquo;Got 2 minutes?&rdquo;</strong></td>
+                <td>&ldquo;I am about to confiscate your next 3 hours and your will to live.&rdquo;</td>
+              </tr>
+              <tr>
+                <td class="phrase"><strong>&ldquo;Should be an easy fix!&rdquo;</strong></td>
+                <td>&ldquo;I have never opened this codebase, but I am filled with unearned optimism.&rdquo;</td>
+              </tr>
+              <tr>
+                <td class="phrase"><strong>&ldquo;Just picking your brain...&rdquo;</strong></td>
+                <td>&ldquo;I want you to do my job, but for free, right now.&rdquo;</td>
+              </tr>
+              <tr>
+                <td class="phrase"><strong>&ldquo;Quick sync?&rdquo;</strong></td>
+                <td>&ldquo;A 45-minute video call that could have been an email neither of us read.&rdquo;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4: The 3 Unspoken Laws -->
+      <section class="section">
+        <div class="section-header">
+          <h2>The 3 Unspoken Laws of the &ldquo;Quick Question&rdquo;</h2>
+          <p class="section-intro">Why this conversational habit creates so much friction:</p>
+        </div>
+
+        <div class="laws-grid">
+          <div class="law-card">
+            <div class="law-icon">⚖️</div>
+            <h3>1. The Asymmetry of Effort</h3>
+            <p>
+              Asking <em>&ldquo;Why doesn't the button work?&rdquo;</em> takes <strong>4 seconds</strong> to type.
+              Answering it requires checking out an old branch, sacrificing a goat to Webpack, reading 8 pages of StackOverflow, and re-evaluating your life choices.
+            </p>
+          </div>
+
+          <div class="law-card">
+            <div class="law-icon">🦹</div>
+            <h3>2. Conversational Hostage-Taking</h3>
+            <p>
+              If someone asks: <em>&ldquo;Can you spare 2 hours to debug my mess?&rdquo;</em>, you can politely decline.
+              Asking for a <em>&ldquo;quick question&rdquo;</em> is emotional blackmail: declining makes you look like an office villain who personally hates teamwork.
+            </p>
+          </div>
+
+          <div class="law-card">
+            <div class="law-icon">📦</div>
+            <h3>3. Schr&ouml;dinger&rsquo;s Question</h3>
+            <p>
+              A question is simultaneously 30 seconds and 4 hours long until you reply <em>&ldquo;What's up?&rdquo;</em>.
+              Once observed, it almost invariably collapses into a full-scale incident response call.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: The Checklist -->
+      <section class="section">
+        <div class="section-header">
+          <h2>How to Ask Like a Civilized Human Being</h2>
+          <p class="section-intro">Follow this 4-step formula and become everyone's favorite teammate:</p>
+        </div>
+
+        <div class="checklist-grid">
+          <div class="checklist-card">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h4>Skip the preamble</h4>
+              <p>Don't ask if you can ask. Don't say hello and wait. Just ask the question in your very first message.</p>
+            </div>
+          </div>
+
+          <div class="checklist-card">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h4>Provide context upfront</h4>
+              <p>Include links, error traces, screenshots, or PR numbers so the recipient can diagnose without back-and-forth.</p>
+            </div>
+          </div>
+
+          <div class="checklist-card">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h4>Clarify urgency</h4>
+              <p>State clearly whether this is an active production fire or something to check out whenever they have downtime.</p>
+            </div>
+          </div>
+
+          <div class="checklist-card">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <h4>Give an exit ramp</h4>
+              <p>Allow them to respond asynchronously: <em>&ldquo;No rush at all, ping me whenever you're out of flow!&rdquo;</em></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="golden-banner">
+          <div class="golden-banner-content">
+            <span class="golden-badge">🌟 The Golden Rule</span>
+            <div class="golden-quote">
+              &ldquo;Do not label your question as 'quick.' Ask the question, provide the context, and let the person doing the work decide how long it takes.&rdquo;
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="view-counter-container">
+        <div class="view-counter">
+          <span class="pulse-dot"></span>
+          <span class="counter-text">
+            👁️ <strong id="viewCount">...</strong> people spared from a &ldquo;quick question&rdquo; since inception
+          </span>
+        </div>
+      </div>
+      <div class="footer-inner">
+        <p>
+          Inspired by <a href="https://nohello.net" target="_blank" rel="noopener">nohello.net</a>, 
+          <a href="https://dontasktoask.com" target="_blank" rel="noopener">dontasktoask.com</a>, and 
+          <a href="https://xyproblem.info" target="_blank" rel="noopener">xyproblem.info</a>.
+        </p>
+        <p class="subtle">
+          Hosted on <a href="https://noquickquestions.com">noquickquestions.com</a> &bull; 
+          Source code on <a href="https://github.com/aakashnandi198/noquickquestions" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+        <p class="ai-credit">
+          🧑‍💻 Prompted by human, 🤖 built by AI
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span>Link copied! Drop it in your Slack/Teams channel.</span>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+      } else {
+        // Default to light theme for maximum readability and airiness
+        document.documentElement.setAttribute('data-theme', 'light');
+        updateThemeIcon('light');
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.getElementById('themeIcon');
+      if (icon) {
+        icon.innerText = theme === 'dark' ? '☀️' : '🌙';
+      }
+    }
+
+    initTheme();
+
+    // Clipboard Copy Logic
+    function copyUrl() {
+      const url = window.location.origin === 'null' || !window.location.origin ? 'https://noquickquestions.com' : window.location.href;
+      
+      const showToast = () => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        const heroBtnText = document.getElementById('copyBtnText');
+        if (heroBtnText) heroBtnText.innerText = 'Copied to Clipboard! 🎉';
+        setTimeout(() => {
+          toast.classList.remove('show');
+          if (heroBtnText) heroBtnText.innerText = 'Copy Link to Drop in Slack';
+        }, 3000);
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(showToast).catch(() => fallbackCopy(url, showToast));
+      } else {
+        fallbackCopy(url, showToast);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      const dummy = document.createElement('input');
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+      cb();
+    }
+
+    // Live View Counter
+    function initViewCounter() {
+      const counterEl = document.getElementById('viewCount');
+      if (!counterEl) return;
+
+      const hasVisited = sessionStorage.getItem('visited_noquickquestions');
+      const endpoint = hasVisited 
+        ? 'https://abacus.jasoncameron.dev/get/noquickquestions.com/views'
+        : 'https://abacus.jasoncameron.dev/hit/noquickquestions.com/views';
+
+      fetch(endpoint)
+        .then(res => res.json())
+        .then(data => {
+          if (data && typeof data.value === 'number') {
+            sessionStorage.setItem('visited_noquickquestions', 'true');
+            counterEl.innerText = data.value.toLocaleString();
+          } else {
+            counterEl.innerText = '1';
+          }
+        })
+        .catch(err => {
+          console.warn('View counter fetch error:', err);
+          counterEl.innerText = '1';
+        });
+    }
+
+    initViewCounter();
+  </script>
+</body>
+</html>
