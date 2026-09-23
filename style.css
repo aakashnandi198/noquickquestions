@@ -1,4 +1,4 @@
-/* High-Impact, Wide-Screen, Large-Scale Stylesheet for noquickquestions.com */
+/* High-Impact, Fluid Responsive Stylesheet for noquickquestions.com */
 
 :root,
 [data-theme="light"] {
@@ -78,28 +78,55 @@
   --shadow-lg: 0 20px 45px -5px rgba(0, 0, 0, 0.65);
 }
 
-/* Reset & Base - Base font scaled up to 18px */
+/* Base Reset & Fluid Responsive Typography */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow-wrap: break-word;
 }
 
 html {
-  font-size: 18px; /* Boosted base typography from 16px to 18px */
+  font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 body {
   background-color: var(--bg-body);
   color: var(--text-main);
   font-family: var(--font-sans);
-  line-height: 1.7;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Top Navigation Bar - Full Width Fluid */
+/* Perfect Horizontal Alignment: Shared Container Metrics */
+.nav-container,
+.wrapper {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding-left: clamp(1rem, 4vw, 2.5rem);
+  padding-right: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* Top Navigation Bar */
 .top-nav {
   position: sticky;
   top: 0;
@@ -108,32 +135,38 @@ body {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 1.1rem 2rem;
+  padding: 0.85rem 0;
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .nav-container {
-  width: 94%;
-  max-width: 1680px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   text-decoration: none;
   color: var(--text-main);
-  font-size: 1.35rem;
+  font-size: clamp(1.05rem, 3.5vw, 1.35rem);
   font-weight: 700;
   letter-spacing: -0.02em;
+  min-width: 0;
 }
 
 .brand-icon {
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  flex-shrink: 0;
+}
+
+.brand-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand strong {
@@ -143,22 +176,24 @@ body {
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.6rem;
+  flex-shrink: 0;
 }
 
 .btn-icon {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 10px;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--text-main);
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .btn-icon:hover {
@@ -171,13 +206,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
   color: var(--text-muted);
   border: 1px solid var(--border);
   background: var(--bg-surface);
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .nav-github:hover {
@@ -186,56 +222,55 @@ body {
   transform: translateY(-1px);
 }
 
-/* Page Wrapper - Takes 94% of the screen up to 1680px for expansive layout */
+/* Page Wrapper */
 .wrapper {
-  width: 94%;
-  max-width: 1680px;
-  margin: 0 auto;
-  padding: 0 1rem 6rem;
+  padding-top: 1rem;
+  padding-bottom: 6rem;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 4.5rem 1rem 4.5rem;
-  margin-bottom: 2.5rem;
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 2rem;
 }
 
 .hero-badge {
   display: inline-block;
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 1.8vw, 0.92rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.5rem 1.3rem;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 1.15rem;
   border-radius: 9999px;
   background: var(--primary-light);
   color: var(--primary);
   border: 1.5px solid var(--primary-border);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
 }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 4.8vw, 4.4rem);
+  font-size: clamp(2.1rem, 5.5vw, 4.2rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.15;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   color: var(--text-main);
 }
 
 .hero h1 span {
   color: var(--primary);
   text-decoration: underline;
-  text-decoration-thickness: 5px;
-  text-underline-offset: 8px;
+  text-decoration-thickness: clamp(3px, 0.6vw, 5px);
+  text-underline-offset: clamp(4px, 0.8vw, 8px);
 }
 
 .tagline {
-  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
   color: var(--text-muted);
-  max-width: 980px;
-  margin: 0 auto 2.8rem;
+  max-width: 960px;
+  margin: 0 auto 2.5rem;
   line-height: 1.6;
 }
 
@@ -250,7 +285,7 @@ body {
   color: var(--text-main);
   font-weight: 800;
   font-style: italic;
-  margin: 0.35rem 0;
+  margin: 0.3rem 0;
   white-space: nowrap;
 }
 
@@ -262,7 +297,7 @@ body {
 .hero-actions {
   display: flex;
   justify-content: center;
-  gap: 1.25rem;
+  width: 100%;
 }
 
 /* Buttons */
@@ -270,7 +305,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   font-weight: 700;
   border-radius: 12px;
   border: none;
@@ -278,16 +313,17 @@ body {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: inherit;
   text-decoration: none;
+  max-width: 100%;
 }
 
 .btn-lg {
-  font-size: 1.2rem;
-  padding: 1.15rem 2.2rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  padding: clamp(0.9rem, 2vw, 1.15rem) clamp(1.4rem, 3.5vw, 2.2rem);
 }
 
 .btn-sm {
-  font-size: 0.95rem;
-  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
 }
 
 .btn-primary {
@@ -315,49 +351,53 @@ body {
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 
 .icon-sm {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 /* Section Common Styling */
 .section {
-  margin-bottom: 6rem;
+  margin-bottom: clamp(3.5rem, 7vw, 6rem);
 }
 
 .section-header {
-  margin-bottom: 2.25rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .section-header h2 {
-  font-size: clamp(2.1rem, 3.2vw, 2.85rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.65rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   color: var(--text-main);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.25;
 }
 
 .section-intro {
-  font-size: 1.3rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   color: var(--text-muted);
+  line-height: 1.55;
 }
 
-/* 1. Side-by-Side Comparison Grid - Expansive 2-Column Desktop */
+/* 1. Side-by-Side Comparison Grid */
 .chat-comparison-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: stretch;
 }
 
 .chat-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
-  border-radius: 20px;
+  border-radius: clamp(14px, 2vw, 20px);
   box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
@@ -378,20 +418,20 @@ body {
 }
 
 .chat-card-header {
-  padding: 1.35rem 1.85rem;
+  padding: clamp(1rem, 2vw, 1.35rem) clamp(1.1rem, 2.5vw, 1.85rem);
   background: var(--bg-subtle);
   border-bottom: 1.5px solid var(--border-subtle);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .status-pill {
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
   font-weight: 800;
-  padding: 0.4rem 0.95rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 8px;
 }
 
@@ -408,34 +448,35 @@ body {
 }
 
 .chat-meta {
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 1.6vw, 0.95rem);
   font-weight: 600;
   color: var(--text-dim);
 }
 
 .chat-body {
-  padding: 2.25rem;
+  padding: clamp(1.25rem, 2.8vw, 2.25rem);
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: clamp(1.1rem, 2vw, 1.6rem);
   flex: 1;
 }
 
 .message-group {
   display: flex;
-  gap: 1.15rem;
+  gap: clamp(0.75rem, 1.8vw, 1.15rem);
+  align-items: flex-start;
 }
 
 .avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: clamp(38px, 4.5vw, 48px);
+  height: clamp(38px, 4.5vw, 48px);
+  border-radius: 10px;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
   flex-shrink: 0;
 }
 
@@ -449,29 +490,30 @@ body {
 
 .message-content {
   flex: 1;
+  min-width: 0;
 }
 
 .sender-name {
-  font-size: 1.05rem;
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
   font-weight: 800;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
   color: var(--text-main);
 }
 
 .time {
   font-weight: 400;
   color: var(--text-dim);
-  margin-left: 0.6rem;
-  font-size: 0.88rem;
+  margin-left: 0.5rem;
+  font-size: 0.82rem;
 }
 
 .bubble {
   background: var(--bg-subtle);
   border: 1.5px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 1.15rem 1.45rem;
-  font-size: 1.12rem;
-  line-height: 1.65;
+  border-radius: 12px;
+  padding: clamp(0.85rem, 1.8vw, 1.15rem) clamp(1rem, 2vw, 1.45rem);
+  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+  line-height: 1.6;
   color: var(--text-main);
   display: inline-block;
   max-width: 100%;
@@ -479,11 +521,12 @@ body {
 
 .bubble code {
   background: var(--bg-subtle-hover);
-  padding: 0.25rem 0.55rem;
-  border-radius: 6px;
+  padding: 0.2rem 0.45rem;
+  border-radius: 5px;
   font-family: var(--font-mono);
-  font-size: 0.9em;
+  font-size: 0.88em;
   color: var(--primary);
+  word-break: break-all;
 }
 
 .bubble.thought {
@@ -495,13 +538,13 @@ body {
 }
 
 .chat-narrative {
-  padding: 1rem 1.35rem;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(0.9rem, 2vw, 1.35rem);
   border-radius: 10px;
   background: var(--bg-subtle);
-  font-size: 1.05rem;
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
   color: var(--text-muted);
-  border-left: 5px solid var(--primary);
-  line-height: 1.6;
+  border-left: 4px solid var(--primary);
+  line-height: 1.55;
 }
 
 .chat-narrative.success-note {
@@ -514,18 +557,20 @@ body {
 .typing-indicator {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 0.75rem;
+  gap: 0.6rem;
+  padding: 0.4rem 0.5rem;
+  flex-wrap: wrap;
 }
 
 .typing-indicator .dots {
   display: inline-flex;
   gap: 5px;
+  flex-shrink: 0;
 }
 
 .typing-indicator span:not(.typing-label) {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   background: var(--text-dim);
   border-radius: 50%;
   animation: bounce 1.4s infinite ease-in-out both;
@@ -535,7 +580,7 @@ body {
 .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
 
 .typing-label {
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   color: var(--text-dim);
   font-style: italic;
 }
@@ -545,18 +590,18 @@ body {
   40% { transform: scale(1); }
 }
 
-/* 2. Scale of Duration Grid (4 Columns Across Full Width) */
+/* 2. Scale of Duration Grid */
 .scale-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
 }
 
 .scale-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
-  border-radius: 18px;
-  padding: 1.85rem;
+  border-radius: clamp(12px, 1.8vw, 18px);
+  padding: clamp(1.25rem, 2vw, 1.85rem);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -573,23 +618,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
 }
 
 .scale-duration {
   font-family: var(--font-mono);
-  font-size: 1.45rem;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
   font-weight: 900;
   color: var(--text-main);
 }
 
 .badge-verdict {
-  font-size: 0.82rem;
+  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.35rem 0.75rem;
-  border-radius: 8px;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .verdict-ok {
@@ -623,25 +670,25 @@ body {
 }
 
 .scale-quote {
-  font-size: 1.15rem;
+  font-size: clamp(1.05rem, 1.7vw, 1.15rem);
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 0.65rem;
-  line-height: 1.45;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
 }
 
 .scale-desc {
-  font-size: 0.98rem;
+  font-size: clamp(0.9rem, 1.5vw, 0.98rem);
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.5;
   margin-top: auto;
 }
 
-/* 3. Dictionary Table - Generous & Roomy */
+/* 3. Dictionary Table - Responsive Card Format on Mobile */
 .table-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
-  border-radius: 20px;
+  border-radius: clamp(14px, 2vw, 20px);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
 }
@@ -654,13 +701,13 @@ body {
 
 .dictionary-table th,
 .dictionary-table td {
-  padding: 1.5rem 2.25rem;
+  padding: clamp(1.1rem, 2vw, 1.5rem) clamp(1.2rem, 2.5vw, 2.25rem);
   border-bottom: 1.5px solid var(--border-subtle);
 }
 
 .dictionary-table th {
   background: var(--bg-subtle);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -676,13 +723,13 @@ body {
 }
 
 .dictionary-table .phrase {
-  font-size: 1.2rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
   color: var(--primary);
   white-space: nowrap;
 }
 
 .dictionary-table td:last-child {
-  font-size: 1.15rem;
+  font-size: clamp(0.98rem, 1.6vw, 1.15rem);
   color: var(--text-main);
   line-height: 1.6;
 }
@@ -690,15 +737,15 @@ body {
 /* 4. The 3 Unspoken Laws Grid */
 .laws-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .law-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
+  border-radius: clamp(14px, 2vw, 20px);
+  padding: clamp(1.6rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem);
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
@@ -710,20 +757,20 @@ body {
 }
 
 .law-icon {
-  font-size: 3rem;
-  margin-bottom: 1.25rem;
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  margin-bottom: 1rem;
 }
 
 .law-card h3 {
-  font-size: 1.45rem;
+  font-size: clamp(1.25rem, 2vw, 1.45rem);
   font-weight: 800;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.75rem;
   color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
 .law-card p {
-  font-size: 1.08rem;
+  font-size: clamp(0.98rem, 1.5vw, 1.08rem);
   color: var(--text-muted);
   line-height: 1.65;
 }
@@ -734,23 +781,24 @@ body {
   border-radius: 5px;
   font-family: var(--font-mono);
   font-size: 0.88em;
+  word-break: break-all;
 }
 
-/* 5. Checklist Grid (2x2 on Desktop) */
+/* 5. Checklist Grid */
 .checklist-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .checklist-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
-  border-radius: 18px;
-  padding: 2rem;
+  border-radius: clamp(12px, 1.8vw, 18px);
+  padding: clamp(1.35rem, 2.5vw, 2rem);
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
   box-shadow: var(--shadow-sm);
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
@@ -762,50 +810,51 @@ body {
 
 .step-num {
   font-family: var(--font-mono);
-  font-size: 2.1rem;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 900;
   color: var(--primary);
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .step-content h4 {
-  font-size: 1.3rem;
+  font-size: clamp(1.15rem, 2vw, 1.3rem);
   font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .step-content p {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* Golden Rule Banner */
 .golden-banner {
   background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-subtle) 100%);
   border: 2.5px solid var(--primary);
-  border-radius: 20px;
-  padding: 3.5rem 2.5rem;
+  border-radius: clamp(14px, 2vw, 20px);
+  padding: clamp(2rem, 4.5vw, 3.5rem) clamp(1.25rem, 3.5vw, 2.5rem);
   text-align: center;
   box-shadow: var(--shadow-md);
 }
 
 .golden-badge {
   display: inline-block;
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--primary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .golden-quote {
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
   font-weight: 800;
   color: var(--text-main);
-  max-width: 1100px;
+  max-width: 1050px;
   margin: 0 auto;
   line-height: 1.55;
 }
@@ -815,19 +864,23 @@ body {
   margin-bottom: 2.25rem;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .view-counter {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.8rem 1.8rem;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: clamp(0.75rem, 2vw, 0.85rem) clamp(1.2rem, 3vw, 1.8rem);
   border-radius: 9999px;
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
   box-shadow: var(--shadow-sm);
-  font-size: 1.05rem;
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
   color: var(--text-muted);
+  max-width: 100%;
+  text-align: center;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -841,7 +894,7 @@ body {
   color: var(--text-main);
   font-weight: 900;
   font-family: var(--font-mono);
-  font-size: 1.2rem;
+  font-size: 1.15em;
 }
 
 .pulse-dot {
@@ -875,10 +928,10 @@ body {
 /* Footer */
 .footer {
   border-top: 1.5px solid var(--border-subtle);
-  padding: 3.5rem 1rem 1rem;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 1rem;
   text-align: center;
   color: var(--text-muted);
-  font-size: 1.05rem;
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
 }
 
 .footer a {
@@ -892,17 +945,18 @@ body {
 }
 
 .footer .subtle {
-  margin-top: 0.9rem;
-  font-size: 0.92rem;
+  margin-top: 0.8rem;
+  font-size: 0.88rem;
   color: var(--text-dim);
 }
 
 .footer .ai-credit {
   margin-top: 1.4rem;
-  font-size: 0.98rem;
+  font-size: clamp(0.85rem, 1.6vw, 0.98rem);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1.2rem;
   border-radius: 9999px;
@@ -910,6 +964,7 @@ body {
   border: 1.5px solid var(--border);
   color: var(--text-muted);
   box-shadow: var(--shadow-sm);
+  max-width: 100%;
   transition: all 0.2s ease;
 }
 
@@ -922,23 +977,24 @@ body {
 /* Toast Notification */
 .toast {
   position: fixed;
-  bottom: 2.5rem;
-  right: 2.5rem;
+  bottom: 2rem;
+  right: 2rem;
   background: var(--good-main);
   color: #ffffff;
-  padding: 1rem 1.6rem;
+  padding: 0.9rem 1.5rem;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
-  transform: translateY(100px);
+  transform: translateY(120px);
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   z-index: 999;
+  max-width: calc(100vw - 4rem);
 }
 
 .toast.show {
@@ -947,21 +1003,25 @@ body {
 }
 
 .toast-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
-/* Responsive Media Queries */
-@media (max-width: 1200px) {
+/* Comprehensive Responsive Breakpoints */
+
+/* Laptops & Tablets (< 1100px) */
+@media (max-width: 1100px) {
   .laws-grid {
     grid-template-columns: 1fr;
   }
   .scale-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 900px) {
+/* Tablets & Mobile Landscape (< 920px) */
+@media (max-width: 920px) {
   .chat-comparison-grid {
     grid-template-columns: 1fr;
   }
@@ -971,18 +1031,105 @@ body {
   .hero-br {
     display: none;
   }
-  .dictionary-table th,
+}
+
+/* Mobile Devices (< 720px): Transform Table to Definition Cards */
+@media (max-width: 720px) {
+  .dictionary-table,
+  .dictionary-table tbody,
+  .dictionary-table tr,
   .dictionary-table td {
-    padding: 1.15rem;
+    display: block;
+    width: 100%;
+  }
+
+  .dictionary-table thead {
+    display: none;
+  }
+
+  .dictionary-table tr {
+    padding: 1.25rem 1.25rem;
+    border-bottom: 1.5px solid var(--border-subtle);
+  }
+
+  .dictionary-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .dictionary-table td {
+    padding: 0;
+    border: none;
+  }
+
+  .dictionary-table .phrase {
+    margin-bottom: 0.45rem;
+    font-size: 1.15rem;
+    white-space: normal;
+  }
+
+  .dictionary-table td:last-child {
+    font-size: 1.05rem;
+    color: var(--text-muted);
   }
 }
 
-@media (max-width: 600px) {
+/* Small Screens & Smart Phones (< 640px) */
+@media (max-width: 640px) {
   .scale-grid {
     grid-template-columns: 1fr;
   }
-  .wrapper {
-    width: 100%;
-    padding: 0 1.25rem 4rem;
+
+  .tagline-quote {
+    white-space: normal;
+    display: inline;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .view-counter {
+    border-radius: 18px;
+    padding: 0.85rem 1.15rem;
+    flex-wrap: wrap;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.5rem;
+    max-width: calc(100vw - 2rem);
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Narrowest Phones (< 480px) */
+@media (max-width: 480px) {
+  .nav-btn-text {
+    display: none;
+  }
+
+  #navCopyBtn {
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+  }
+
+  .btn-icon,
+  .nav-github {
+    width: 40px;
+    height: 40px;
+  }
+
+  .chat-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checklist-card {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }
