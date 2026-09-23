@@ -601,7 +601,7 @@ body {
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
   border-radius: clamp(12px, 1.8vw, 18px);
-  padding: clamp(1.25rem, 2vw, 1.85rem);
+  padding: clamp(1.1rem, 1.6vw, 1.5rem);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -618,24 +618,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  gap: 0.4rem;
+  min-height: 32px;
 }
 
 .scale-duration {
   font-family: var(--font-mono);
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
   font-weight: 900;
   color: var(--text-main);
+  white-space: nowrap;
 }
 
 .badge-verdict {
-  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
+  font-size: clamp(0.7rem, 0.85vw, 0.78rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.3rem 0.65rem;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.55rem;
   border-radius: 6px;
+  white-space: nowrap;
   flex-shrink: 0;
 }
 
@@ -670,11 +673,12 @@ body {
 }
 
 .scale-quote {
-  font-size: clamp(1.05rem, 1.7vw, 1.15rem);
+  font-size: clamp(1.02rem, 1.4vw, 1.15rem);
   font-weight: 700;
   color: var(--text-main);
   margin-bottom: 0.5rem;
   line-height: 1.4;
+  min-height: 2.8em;
 }
 
 .scale-desc {
@@ -1010,8 +1014,8 @@ body {
 
 /* Comprehensive Responsive Breakpoints */
 
-/* Laptops & Tablets (< 1100px) */
-@media (max-width: 1100px) {
+/* Laptops & Tablets (< 1240px) */
+@media (max-width: 1240px) {
   .laws-grid {
     grid-template-columns: 1fr;
   }
